@@ -1,6 +1,10 @@
 ﻿{
     "app": {
-        "home": "Casa",
-        "amount": "Cantidad"
+        "choose_culture": "Elija Cultura",
+        "promotion": "Promoción de productos",
+        "discount_start_date": "Fecha de inicio de Descuento:",
+        "discount_end_date": "Fecha de finalización de descuento:",
+        "initial_price": "Precio inicial:",
+        "discount": "Descuento:"
     }
 }

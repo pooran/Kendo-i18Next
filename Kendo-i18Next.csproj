@@ -59,8 +59,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="locales\dev\translation.json" />
-    <Content Include="locales\en\translation.json" />
     <Content Include="locales\es\translation.json" />
+    <Content Include="locales\en\translation.json" />
+    <Content Include="locales\en-US\translation.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

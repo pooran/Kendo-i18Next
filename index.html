@@ -1,66 +1,166 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="description" content="Kendo UI forum: Complete solution for language localization of all text strings in an app" />
-    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.common.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.default.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.dataviz.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2014.1.528/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-    <script src="http://cdn.kendostatic.com/2014.1.528/js/jquery.min.js"></script>
-    <script src="http://cdn.kendostatic.com/2014.1.528/js/kendo.all.min.js"></script>
+ 
+    <style>
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.625/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.625/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.625/styles/kendo.dataviz.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.625/styles/kendo.dataviz.default.min.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.2.625/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.625/styles/kendo.rtl.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.2.625/styles/kendo.mobile.all.min.css">
     <script src="Scripts/i18next-1.7.3.min.js"></script>
-    <meta charset=utf-8 />
 </head>
 <body class="nav">
-    <button class="k-button" data-bind="click: enGB_Clicked">en-GB</button>
-    <button class="k-button" data-bind="click: esCL_Clicked">es-CL</button>
-    <span data-i18n="app.home"></span>
-    <span data-i18n="app.amount"></span> <span data-bind="text: kendoFormattedText"></span>
-    <script>
-        i18n.init(function (t) {
-            i18n.setLng("es-CL");
-            $(".nav").i18n();
-        });
+    <script src="http://cdn.kendostatic.com/2013.2.716/js/cultures/kendo.culture.en-GB.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2013.2.716/js/cultures/kendo.culture.es-CL.min.js"></script>
+    <div id="example">
+        <div id="product-view" class=" demo-section k-header">
+            <div class="right">
+                <span data-i18n="app.choose_culture"></span>
+                <input id="culture" value="en-US" />
+            </div>
+            <span data-i18n="app.promotion"></span>
+            <ul id="fieldlist">
+                <li>
+                    <span data-i18n="app.discount_start_date"></span>
+                    <input id="startDate" />
+                    <input id="startTime" value="12:00 AM" />
+                </li>
+                <li>
+                    <span data-i18n="app.discount_end_date"></span>
+                    <input id="endDate" />
+                    <input id="endTime" value="12:00 AM" />
+                </li>
+                <li>
+                    <span data-i18n="app.initial_price"></span>
+                    <input id="initial" value="10" min="1" />
+                </li>
+                <li>
+                    <span data-i18n="app.discount"></span>
+                    <input id="discount" value="0.05" min="0" max="0.5" step="0.01" />
+                </li>
+            </ul>
+        </div>
+        <style scoped>
+            #example h2 {
+                padding: 5px 0;
+                font-weight: normal;
+                border-bottom: 1px solid #aaa;
+            }
 
-        $(function () {
+            #product-view {
+                overflow: hidden;
+                width: 600px;
+                padding: 20px 20px 0 20px;
+                margin: 30px auto;
+                background-position: 0 -255px;
+            }
 
-            var viewModel = kendo.observable({
+            .right {
+                float: right;
+            }
 
-                kendoFormattedText: function () {
-                    return kendo.format('{0:C}', 1234.5678);
-                },
+            #fieldlist {
+                width: 100%;
+                float: left;
+                margin: 0;
+                padding: 10px 0 30px 0;
+            }
 
-                enGB_Clicked: function () {
-                    this.loadKendoCulture('en-GB');
-                    i18n.setLng('en-GB');
-                    $(".nav").i18n();
-                },
-
-                esCL_Clicked: function () {
-                    this.loadKendoCulture('es-CL');
-                    i18n.setLng('es-CL');
-                    $(".nav").i18n();
-                },
-
-                loadKendoCulture: function (cultureName) {
-                    var cultureFileName = 'http://cdn.kendostatic.com/2013.2.716/js/cultures/kendo.culture.' + cultureName + '.min.js';
-                    $.getScript(cultureFileName)
-                    .done(function () {
-                        console.log('kendo culture file successfully loaded');
-                        kendo.culture(cultureName);
-                        viewModel.trigger("change", { field: "kendoFormattedText" });
-                    })
-                    .fail(function () {
-                        console.log('failed to load kendo culture file');
-                    });
+                #fieldlist li {
+                    list-style: none;
+                    padding: 5px 0;
                 }
-            });
 
-            kendo.bind('body', viewModel);
-        });
-    </script>
+                #fieldlist label {
+                    display: inline-block;
+                    width: 140px;
+                    text-align: right;
+                }
+        </style>
+        <script>
+            $(document).ready(function () {
+                i18n.init({ lng: 'en-GB' }, function (t) { $(".nav").i18n(); });                
+                function startDateChange() {
+                    var date = startDate.value();
+
+                    if (date) {
+                        date = new Date(date);
+                        date.setDate(date.getDate() + 1);
+                        endDate.min(date);
+                    }
+                }
+
+                function endDateChange() {
+                    var date = endDate.value();
+
+                    if (date) {
+                        date = new Date(date);
+                        date.setDate(date.getDate() - 1);
+                        startDate.max(date);
+                    }
+                }
+
+                function changeCulture() {
+                    kendo.culture(this.value());
+                    var datePickerOptions = {
+                        format: kendo.culture().calendar.patterns.d
+                    };
+
+                    var timePickerOptions = {
+                        format: kendo.culture().calendar.patterns.t
+                    };
+
+                    startDate.setOptions(datePickerOptions);
+                    endDate.setOptions(datePickerOptions);
+
+                    startTime.setOptions(timePickerOptions);
+                    endTime.setOptions(timePickerOptions);
+
+                    initial.value(initial.value());
+                    discount.value(discount.value());
+                    i18n.init({ lng: this.value() }, function (t) { $(".nav").i18n(); });
+                }
+
+                var startDate = new kendo.ui.DatePicker($("#startDate"), { change: startDateChange });
+                var endDate = new kendo.ui.DatePicker($("#endDate"), { change: endDateChange });
+
+                var startTime = new kendo.ui.TimePicker($("#startTime"));
+                var endTime = new kendo.ui.TimePicker($("#endTime"));
+
+                var initial = new kendo.ui.NumericTextBox($("#initial"), { format: "c" });
+                var discount = new kendo.ui.NumericTextBox($("#discount"), { format: "p" });
+
+                var today = new Date();
+
+                startDate.value(today);
+                endDate.min(today);
+
+                today = new Date(today);
+                today.setDate(today.getDate() + 1);
+
+                endDate.value(today);
+                startDate.max(today);
+
+                $("#culture").kendoDropDownList({
+                    change: changeCulture,
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: [{ text: 'en-GB' },
+                    { text: 'es-CL' }]
+                });
+            });
+        </script>
+    </div>
 
 </body>
 </html>

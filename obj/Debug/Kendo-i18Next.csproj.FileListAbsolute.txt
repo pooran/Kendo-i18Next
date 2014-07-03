@@ -4,3 +4,8 @@ d:\projects\Kendo-i18Next\bin\Kendo-i18Next.pdb
 d:\projects\Kendo-i18Next\obj\Debug\Kendo-i18Next.dll
 d:\projects\Kendo-i18Next\obj\Debug\Kendo-i18Next.pdb
 d:\projects\Kendo-i18Next\obj\Debug\Kendo-i18Next.csprojResolveAssemblyReference.cache
+D:\Projects\freeeee\bin\Kendo-i18Next.dll.config
+D:\Projects\freeeee\bin\Kendo-i18Next.dll
+D:\Projects\freeeee\bin\Kendo-i18Next.pdb
+D:\Projects\freeeee\obj\Debug\Kendo-i18Next.dll
+D:\Projects\freeeee\obj\Debug\Kendo-i18Next.pdb

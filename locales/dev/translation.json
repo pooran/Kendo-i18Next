@@ -1,6 +1,10 @@
 ﻿{
     "app": {
-        "home": "Home",
-        "amount": "Amount"
+        "choose_culture": "XXXXX",
+        "promotion": "XXXXX",
+        "discount_start_date": "XXXXX",
+        "discount_end_date": "XXXXX",
+        "initial_price": "XXXXX",
+        "discount": "XXXXX"
     }
 }
