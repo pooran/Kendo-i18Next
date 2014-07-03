@@ -9,3 +9,4 @@ D:\Projects\freeeee\bin\Kendo-i18Next.dll
 D:\Projects\freeeee\bin\Kendo-i18Next.pdb
 D:\Projects\freeeee\obj\Debug\Kendo-i18Next.dll
 D:\Projects\freeeee\obj\Debug\Kendo-i18Next.pdb
+D:\Projects\freeeee\obj\Debug\Kendo-i18Next.csprojResolveAssemblyReference.cache
